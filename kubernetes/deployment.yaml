@@ -6,7 +6,7 @@ metadata:
     app: ecsdemo-nodejs
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: ecsdemo-nodejs
@@ -20,6 +20,8 @@ spec:
       labels:
         app: ecsdemo-nodejs
     spec:
+      nodeSelector:
+        kubernetes.io/os: linux
       containers:
       - image: brentley/ecsdemo-nodejs:latest
         imagePullPolicy: Always
